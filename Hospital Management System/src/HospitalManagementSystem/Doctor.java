@@ -15,7 +15,7 @@ public class Doctor {
     }
 
     public void ViewDoctor(){
-        String query= "SELECT * FROM Doctors";
+        String query= "SELECT * FROM doctors";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet=preparedStatement.executeQuery();
@@ -27,7 +27,7 @@ public class Doctor {
                 int id=resultSet.getInt("id");
                 String Name=resultSet.getString("Name");
                 String Specialization=resultSet.getString("Specialization");
-                System.out.printf("|%-5s|%-17s|%-18s |\n",id,Name,Specialization);
+                System.out.printf("| %-3s | %-15s | %-16s |\n",id,Name,Specialization);
                 System.out.println("+-----+-----------------+------------------+");
             }
         }catch ( SQLException e){
@@ -36,7 +36,7 @@ public class Doctor {
     }
 
     public boolean getDoctorsById(int id){
-        String query= "SELECT * FROM Doctors WHERE ID = ?";
+        String query= "SELECT * FROM doctors WHERE ID = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,id);

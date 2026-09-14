@@ -10,7 +10,7 @@ public class Patient {
     private Connection connection;
     private Scanner scanner;
 
-    public void Patient(Connection connection,Scanner scanner){
+    public Patient(Connection connection,Scanner scanner){
         this.connection=connection;
         this.scanner=scanner;
     }
@@ -32,8 +32,10 @@ public class Patient {
 
             if(affectedrows>0){
                 System.out.println("Patient added succesfully ");
+                System.out.println(" ");
             }else{
                 System.out.println("Patient not added ");
+                System.out.println(" ");
             }
 
         }catch (SQLException e){
@@ -56,7 +58,7 @@ public class Patient {
                 String Name=resultSet.getString("Name");
                 int Age=resultSet.getInt("Age");
                 String Gender=resultSet.getString("Gender");
-                System.out.printf("|%-5s|%-17s|%-7s|%-10s |\n",id,Name,Age,Gender);
+                System.out.printf("| %-3s | %-15s | %-5s | %-8s |\n",id,Name,Age,Gender);
                 System.out.println("+-----+-----------------+-------+----------+");
             }
 
@@ -70,7 +72,7 @@ public class Patient {
     public boolean getPatientsById(int id){
 
         try{
-            String query="SELECT * FROM Pateints WHERE id=?";
+            String query="SELECT * FROM pateints WHERE id=?";
             PreparedStatement preparedStatement=connection.prepareStatement(query);
             preparedStatement.setInt(1,id);
 
