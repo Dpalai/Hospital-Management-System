@@ -56,7 +56,7 @@ public class Patient {
                 String Name=resultSet.getString("Name");
                 int Age=resultSet.getInt("Age");
                 String Gender=resultSet.getString("Gender");
-                System.out.printf("|%-5s|%-17s|%-7s|%-10s",id,Name,Age,Gender);
+                System.out.printf("|%-5s|%-17s|%-7s|%-10s |\n",id,Name,Age,Gender);
                 System.out.println("+-----+-----------------+-------+----------+");
             }
 
